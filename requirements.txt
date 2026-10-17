@@ -1,0 +1,14 @@
+streamlit
+boto3
+python-dotenv
+pymupdf
+langchain-core
+langchain-text-splitters
+langchain-huggingface
+sentence-transformers
+chromadb
+langchain-chroma
+rank-bm25
+pandas
+pytesseract
+pillow
