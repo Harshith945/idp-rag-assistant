@@ -35,24 +35,6 @@ to generate context-aware answers with source references.
 -   **AWS Deployment:** Run the application on Amazon EC2, with Amazon
     S3 for document storage and AWS Lambda for document processing.
 
-## Architecture
-
-1.  Users upload PDF documents through the Streamlit application hosted
-    on Amazon EC2.
-2.  Uploaded documents are stored in Amazon S3.
-3.  An S3 event triggers AWS Lambda for document processing.
-4.  PyMuPDF extracts text from regular PDFs, while Tesseract OCR
-    processes scanned documents.
-5.  Extracted text is saved in Amazon S3.
-6.  The ingestion pipeline chunks the text and generates embeddings
-    using the Hugging Face `all-MiniLM-L6-v2` model.
-7.  ChromaDB stores the document chunks, embeddings, and associated
-    metadata.
-8.  When a user asks a question, the retrieval pipeline finds relevant
-    document chunks.
-9.  Groq generates an answer using the retrieved context.
-10. The Streamlit interface displays the answer with source references.
-
 ## Technology Stack
 
   Component                   Technology
@@ -142,7 +124,8 @@ to generate context-aware answers with source references.
                     ┌──────────────────────┐
                     │ Answer with Sources  │
                     │   Streamlit UI       │
-                    └──────────────────────┘```
+                    └──────────────────────┘
+```
 
 ## Project Structure
 
