@@ -36,7 +36,7 @@ to generate context-aware answers with source references.
     S3 for document storage and AWS Lambda for document processing.
 
 ## Technology Stack
-
+```text
   Component                   Technology
   --------------------------- -------------------------------------
   Programming language        Python 3.12
@@ -51,6 +51,7 @@ to generate context-aware answers with source references.
   RAG framework               LangChain
   LLM provider                Groq API
   Validation and guardrails   Python / Pydantic, where configured
+```
 
 ## Architecture
 
