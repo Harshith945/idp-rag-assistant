@@ -201,11 +201,3 @@ found in the retrieved document context.
     reporting.
 -   Evaluate an AWS-hosted language model if required by deployment
     constraints.
-
-## Author
-
-**Harshith Kumar**
-
-AI / ML and Generative AI Engineering
-
-GitHub: [Harshith945](https://github.com/Harshith945)
