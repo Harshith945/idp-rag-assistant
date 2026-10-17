@@ -142,7 +142,7 @@ to generate context-aware answers with source references.
                     ┌──────────────────────┐
                     │ Answer with Sources  │
                     │   Streamlit UI       │
-                    └──────────────────────┘
+                    └──────────────────────┘```
 
 ## Project Structure
 
