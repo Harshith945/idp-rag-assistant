@@ -70,6 +70,80 @@ to generate context-aware answers with source references.
   LLM provider                Groq API
   Validation and guardrails   Python / Pydantic, where configured
 
+## Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │         User         │
+                    │ Upload PDF / Ask Qs  │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Streamlit Web App  │
+                    │       AWS EC2        │
+                    └──────────┬───────────┘
+                               │
+                   Upload PDF  │
+                               ▼
+                    ┌──────────────────────┐
+                    │      Amazon S3       │
+                    │    Original PDFs     │
+                    └──────────┬───────────┘
+                               │
+                         S3 Event Trigger
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    AWS Lambda        │
+                    │   Text Extraction    │
+                    │ PyMuPDF / Tesseract  │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      Amazon S3       │
+                    │   Extracted Text     │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      ingest.py       │
+                    │ Chunking & Ingestion │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │ Hugging Face         │
+                    │ all-MiniLM-L6-v2     │
+                    │ Text Embeddings      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   ChromaDB on EC2    │
+                    │   Vector Database    │
+                    └──────────┬───────────┘
+                               │
+                   User Question│
+                               ▼
+                    ┌──────────────────────┐
+                    │   RAG Retrieval      │
+                    │ Relevant Text Chunks │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      Groq API        │
+                    │   LLM Generation     │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │ Answer with Sources  │
+                    │   Streamlit UI       │
+                    └──────────────────────┘
+
 ## Project Structure
 
 ``` text
