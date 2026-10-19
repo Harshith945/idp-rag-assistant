@@ -1,9 +1,8 @@
 ## LIVE DEMO : http://98.93.47.244:8501/
 
-
 # AWS IDP RAG Document Intelligence Assistant
 
-An AI-powered document intelligence application that extracts
+An AI-powered documentsintelligence application that extracts
 information from PDF documents and answers user questions using
 Retrieval-Augmented Generation (RAG). It supports text-based PDFs and
 scanned PDFs using PyMuPDF and Tesseract OCR.
